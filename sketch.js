@@ -13,7 +13,7 @@ let resolution = 25;
 
 function setup() {
 
-  createCanvas(4000, 4000);
+  createCanvas(3500, 3500);
   frameRate(24)
 
   cols = (width.toFixed(0)) / resolution;
