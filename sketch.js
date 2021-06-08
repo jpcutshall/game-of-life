@@ -1,32 +1,33 @@
-function make2DArray(cols, rows) {
-  let arr = new Array(cols);
-  for (let i = 0; i < arr.length; i++) {
-    arr[i] = new Array(rows);
+const make2DArray = (cols, rows, init = false) => {
+  if (init) {
+    let array = Array.from(Array(cols), () => Array.from(Array(rows), () => Math.floor(random(2))))
+    return array;
   }
+  //fastest for 2d array right now
+  
+  let arr = Array.from(Array(cols), () => Array(rows))
   return arr;
 }
+
+
+
+
 
 let grid;
 let cols;
 let rows;
-let resolution = 25;
+let resolution = 10;
 
 function setup() {
 
-  createCanvas(3500, 3500);
-  frameRate(24)
+  createCanvas(1000, 700);
+  frameRate(60)
 
-  cols = (width.toFixed(0)) / resolution;
-  rows = (height.toFixed(0)) / resolution;
+  cols = width / resolution;
+  rows = height / resolution;
 
-  grid = make2DArray(cols, rows)
+  grid = make2DArray(cols, rows, true)
 
-  for (let i = 0; i < cols; i++) {
-    for (let j = 0; j< rows; j++) {
-
-      grid[i][j] = floor(random(2));
-    }
-  }
 
   
 }
